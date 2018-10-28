@@ -35,9 +35,9 @@ print(authorization_url[0])
 
 redirect_response = input("\n Paste the redirect URL")  #string
 
-ind = redirect_response.find("&code=") + 6
+ind = redirect_response.find("&code=") + 6  # fining index of code from redirect response 
 
-code = redirect_response[ind:]
+code = redirect_response[ind:]  # extracting code from link, (code is in the last part of the redirect URL
 
 api_url_base    = "https://api-ssl.bitly.com/oauth/access_token?client_id=aadbabdf05cf85001538249359cedf3e3ad87235&client_secret=5211d81ade2f88af0ff1d7f21b5b5deb0a1c2e7d&code="+code
 token                   = oauth.fetch_token(api_url_base, authorization_response=redirect_response)  #json 
@@ -45,7 +45,7 @@ token                   = oauth.fetch_token(api_url_base, authorization_response
 print(token)
 long_url = input("Enter your URL: \n")
 pydata = {
-    "group_guid": "Bial8svtjwM",  #get group guid by sending get request to the guid link mentioned in documentation
+    "group_guid": "group_id",  #get group guid by sending get request to the guid link mentioned in documentation
     "domain": "bit.ly",   
     "long_url": long_url,
     
